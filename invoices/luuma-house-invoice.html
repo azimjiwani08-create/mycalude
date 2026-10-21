@@ -2,184 +2,182 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Invoice FZ-2026-001 — Luuma House</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<title>FORM — Invoice · Luuma House</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 0; }
-  :root { --ink:#1A1A1A; --paper:#F2EFE9; --mute:#6b6862; --rule:#d6d1c7; }
+  @page { size: 1334px 750px; margin: 0; }
+  :root { --cream:#F0EDE7; --char:#1C1C1C; --ink:#1A1A1A; --mute:#6E6A64; --mute-d:#A8A39B; --rule:#2B2B2B; --rule-l:#CFCAC1; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--paper); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .page { width: 210mm; height: 296mm; overflow: hidden; padding: 13mm 16mm 12mm; position: relative; }
-  .serif { font-family: 'Cormorant Garamond', serif; }
-  .label { font-size: 7pt; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); font-weight: 400; }
+  body { font-family: 'Jost', sans-serif; font-weight: 300; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 5mm; border-bottom: 1px solid var(--ink); }
-  .brand { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 30pt; letter-spacing: .06em; line-height: 1; }
-  .brand small { display: block; font-family: 'Jost', sans-serif; font-size: 7pt; font-weight: 400; letter-spacing: .3em; margin-top: 2mm; color: var(--mute); }
-  .doc-title { text-align: right; }
-  .doc-title h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 26pt; line-height: 1; }
-  .doc-title p { margin-top: 1.5mm; }
+  .slide { width: 1334px; height: 750px; position: relative; overflow: hidden; padding: 89px 89px 0; page-break-after: always; }
+  .slide:last-child { page-break-after: auto; }
+  .light { background: var(--cream); color: var(--ink); }
+  .dark  { background: var(--char); color: #F2EFE9; }
 
-  .meta { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 8mm; padding: 4.5mm 0; border-bottom: 1px solid var(--rule); }
-  .meta .v { margin-top: 1.2mm; font-weight: 400; }
-  .meta .v.big { font-family: 'Cormorant Garamond', serif; font-size: 15pt; font-weight: 500; line-height: 1.1; }
+  .eyebrow { font-size: 15px; letter-spacing: .28em; text-transform: uppercase; font-weight: 400; color: var(--mute); }
+  .dark .eyebrow { color: var(--mute-d); }
+  h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: -.005em; }
+  h2 { font-size: 50px; line-height: 1.1; margin-top: 22px; }
+  em { font-style: italic; }
 
-  .scope { padding: 4.5mm 0 3.5mm; border-bottom: 1px solid var(--rule); }
-  .scope h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 14pt; margin: 1mm 0 2.5mm; }
-  .scope ul { list-style: none; columns: 2; column-gap: 10mm; }
-  .scope li { padding: .4mm 0 .4mm 4mm; position: relative; break-inside: avoid; }
-  .scope li::before { content: ''; position: absolute; left: 0; top: 2.7mm; width: 1.6mm; height: 1px; background: var(--ink); }
+  .foot { position: absolute; left: 89px; right: 89px; bottom: 44px; display: flex; justify-content: space-between; align-items: baseline; }
+  .mark { font-weight: 600; font-size: 15px; letter-spacing: .32em; }
+  .pg { font-size: 16px; color: var(--mute); }
+  .dark .pg { color: var(--mute-d); }
 
-  table { width: 100%; border-collapse: collapse; margin-top: 4mm; }
-  th { text-align: left; font-size: 7pt; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); font-weight: 400; padding: 0 0 2mm; border-bottom: 1px solid var(--ink); }
-  th.r, td.r { text-align: right; }
-  td { padding: 2.4mm 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  td .item { font-weight: 400; }
-  td .sub { color: var(--mute); font-size: 8.2pt; margin-top: .5mm; }
+  /* 01 cover */
+  .cover { padding: 0; }
+  .cover .photo { position: absolute; right: 0; top: 0; width: 780px; height: 750px; background: url('assets/sculpture.jpg') center/cover; }
+  .cover .photo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--char) 0%, rgba(28,28,28,.85) 14%, rgba(28,28,28,0) 52%); }
+  .cover .copy { position: absolute; left: 89px; top: 200px; width: 640px; }
+  .cover h1 { font-size: 86px; line-height: 1.02; margin-top: 30px; }
+  .cover .lede { font-size: 21px; line-height: 1.5; color: #D8D3CA; margin-top: 26px; max-width: 520px; }
+  .cover .facts { display: flex; gap: 48px; margin-top: 40px; padding-top: 22px; border-top: 1px solid #3A3A3A; width: 560px; }
+  .cover .facts p { font-size: 14px; color: var(--mute-d); letter-spacing: .04em; }
+  .cover .facts b { display: block; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 26px; color: #F2EFE9; margin-top: 4px; letter-spacing: 0; }
 
-  .totals { display: flex; justify-content: flex-end; margin-top: 3mm; }
-  .totals table { width: 82mm; margin: 0; }
-  .totals td { padding: 1.1mm 0; border: 0; }
-  .totals tr.grand td { border-top: 1px solid var(--ink); padding-top: 3mm; }
-  .totals tr.grand .amt { font-family: 'Cormorant Garamond', serif; font-size: 20pt; font-weight: 500; line-height: 1; }
+  .cover .pg { color: #F2EFE9; opacity: .8; }
 
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
-  .split div { border: 1px solid var(--ink); padding: 3.5mm 4mm; }
-  .split .amt { font-family: 'Cormorant Garamond', serif; font-size: 16pt; font-weight: 500; margin-top: 1mm; }
-  .split div.dark { background: var(--ink); color: var(--paper); }
-  .split div.dark .label { color: #b9b4aa; }
+  /* 02 scope */
+  .cols { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 33px; row-gap: 34px; margin-top: 64px; }
+  .col { border-top: 1px solid var(--ink); padding-top: 18px; }
+  .col .n { color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 34px; line-height: 1; }
+  .col h3 { font-size: 20px; font-weight: 500; margin-top: 12px; }
+  .col p { font-size: 15.5px; line-height: 1.5; color: var(--mute); margin-top: 8px; }
 
-  .foot { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin-top: 5mm; }
-  .foot h3 { margin-bottom: 2mm; }
-  .foot dl { display: grid; grid-template-columns: 26mm 1fr; row-gap: 1mm; }
-  .foot dt { color: var(--mute); }
-  .foot dd { font-weight: 400; }
-  .foot ol { padding-left: 4mm; }
-  .foot ol li { margin-bottom: .6mm; }
+  /* 03 invoice */
+  .bill { display: grid; grid-template-columns: 1fr 392px; gap: 64px; margin-top: 44px; }
+  table { width: 100%; border-collapse: collapse; font-size: 17px; }
+  thead th { background: #E2DED6; font-weight: 600; text-align: left; padding: 12px 14px; border: 1px solid var(--rule-l); }
+  td { padding: 13px 14px; border: 1px solid var(--rule-l); vertical-align: top; font-weight: 400; }
+  td small { display: block; font-size: 14px; color: var(--mute); font-weight: 300; margin-top: 3px; }
+  .r { text-align: right; white-space: nowrap; }
+  .sum { border-top: 1px solid var(--ink); padding-top: 18px; }
+  .sum .row { display: flex; justify-content: space-between; font-size: 17px; padding: 7px 0; }
+  .sum .row.m { color: var(--mute); font-size: 15px; }
+  .sum .total { border-top: 1px solid var(--ink); margin-top: 12px; padding-top: 18px; }
+  .sum .total .big { color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 76px; line-height: 1; margin-top: 8px; }
+  .sum .total p { font-size: 15px; color: var(--mute); margin-top: 8px; }
 
-  .sign { margin-top: 6mm; display: flex; justify-content: space-between; align-items: flex-end; padding-top: 4mm; border-top: 1px solid var(--rule); }
-  .sign .thanks { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13pt; }
-  .sign .sig { text-align: right; }
-  .sign .sig .line { width: 50mm; border-bottom: 1px solid var(--ink); height: 9mm; margin-left: auto; margin-bottom: 1.5mm; }
+  /* 04 payment */
+  .flow { display: flex; align-items: stretch; margin-top: 40px; }
+  .step { flex: 1; border: 1px solid #3E3E3E; padding: 18px 20px; }
+  .step.hi { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+  .step .t { font-size: 15px; color: var(--mute-d); }
+  .step.hi .t { color: var(--mute); }
+  .step h3 { font-size: 22px; font-weight: 500; margin-top: 10px; }
+  .step .amt { color: inherit !important; font-family: 'Cormorant Garamond', serif; font-size: 40px; line-height: 1; margin-top: 14px; }
+  .step p { font-size: 15px; line-height: 1.45; color: #C9C4BB; margin-top: 10px; }
+  .step.hi p { color: var(--mute); }
+  .arrow { width: 44px; display: flex; align-items: center; justify-content: center; color: var(--mute-d); font-size: 22px; }
+  .lower { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 30px; }
+  .lower .eyebrow { font-size: 13px; }
+  .lines { margin-top: 12px; }
+  .lines div { display: grid; grid-template-columns: 150px 1fr; padding: 6px 0; border-bottom: 1px solid var(--rule); font-size: 15.5px; }
+  .lines div:first-child { border-top: 1px solid var(--rule); }
+  .lines dt { color: #F2EFE9; font-weight: 500; }
+  .lines dd { color: #C9C4BB; }
+  .lines dd.blank { color: #5E5A55; letter-spacing: .1em; }
+  .terms { margin-top: 12px; font-size: 15px; line-height: 1.5; color: #C9C4BB; list-style: none; }
+  .terms li { padding: 6px 0; border-bottom: 1px solid var(--rule); }
+  .terms li:first-child { border-top: 1px solid var(--rule); }
 </style>
 </head>
 <body>
-<div class="page">
 
-  <header>
-    <div class="brand">FORMIZA<small>AGENCY · MUMBAI</small></div>
-    <div class="doc-title">
-      <h1>Tax Invoice</h1>
-      <p class="label">No. FZ-2026-001</p>
+<!-- 01 · Cover -->
+<section class="slide dark cover">
+  <div class="photo"></div>
+  <div class="copy">
+    <p class="eyebrow">FORM · Tax Invoice · No. FORM-2026-001</p>
+    <h1>Luuma House.<br><em>Ready to go live.</em></h1>
+    <p class="lede">Website design, development and hosting for Luuma House, built and ready to deploy.</p>
+    <div class="facts">
+      <p>Invoice date<b>21 Oct 2026</b></p>
+      <p>Total payable<b>₹52,080</b></p>
+      <p>Advance due<b>On receipt</b></p>
     </div>
-  </header>
+  </div>
+  <div class="foot"><span class="mark">FORM</span><span class="pg">01 / 04</span></div>
+</section>
 
-  <section class="meta">
-    <div>
-      <p class="label">Billed to</p>
-      <p class="v big">Luuma House</p>
-      <p class="v" style="font-weight:300;color:var(--mute)">Restaurant &amp; Bar</p>
-    </div>
-    <div>
-      <p class="label">Invoice date</p>
-      <p class="v">21 October 2026</p>
-      <p class="label" style="margin-top:3mm">Advance due</p>
-      <p class="v">On receipt</p>
-    </div>
-    <div>
-      <p class="label">From</p>
-      <p class="v">Formiza Agency</p>
-      <p class="v" style="font-weight:300">Mumbai, Maharashtra</p>
-    </div>
-  </section>
+<!-- 02 · Scope -->
+<section class="slide light">
+  <p class="eyebrow">What we built</p>
+  <h2>Every page your guests need. <em>One website.</em></h2>
+  <div class="cols">
+    <div class="col"><p class="n">01</p><h3>Home</h3><p>Sunlit and Candlelit toggle, with a Reserve Now strip on every visit.</p></div>
+    <div class="col"><p class="n">02</p><h3>Lunch, Dinner, By the Bar</h3><p>Photo sliders and full galleries for each part of the day.</p></div>
+    <div class="col"><p class="n">03</p><h3>Events</h3><p>Your past events and event reels, all in one place.</p></div>
+    <div class="col"><p class="n">04</p><h3>Ambience</h3><p>A swipeable viewer and a photo collage of the space.</p></div>
+    <div class="col"><p class="n">05</p><h3>Visionaries &amp; Careers</h3><p>The people behind Luuma House, open roles and the footer.</p></div>
+    <div class="col"><p class="n">06</p><h3>Reservations</h3><p>A pop-up that opens a call or a WhatsApp chat in one tap.</p></div>
+    <div class="col"><p class="n">07</p><h3>Mobile-first</h3><p>Fully mobile-friendly, where most guests find you.</p></div>
+    <div class="col"><p class="n">08</p><h3>1-year warranty</h3><p>Bug fixes covered for a full year after the site goes live.</p></div>
+  </div>
+  <div class="foot"><span class="mark">FORM</span><span class="pg">02 / 04</span></div>
+</section>
 
-  <section class="scope">
-    <p class="label">Project</p>
-    <h2>Luuma House — Website Design &amp; Development</h2>
-    <ul>
-      <li>Home page with Sunlit / Candlelit toggle and Reserve Now strip</li>
-      <li>Lunch, Dinner and By the Bar sections with photo sliders and full galleries</li>
-      <li>Events page with past events and event reels</li>
-      <li>Ambience page with swipeable viewer and photo collage</li>
-      <li>Our Visionaries, Careers and footer</li>
-      <li>Reservation pop-up that opens a call or WhatsApp chat</li>
-      <li>Fully mobile-friendly build</li>
-      <li>1-year warranty from deployment</li>
-    </ul>
-  </section>
-
-  <table>
-    <thead>
-      <tr><th style="width:8mm">#</th><th>Description</th><th class="r" style="width:28mm">Rate</th><th class="r" style="width:30mm">Amount (₹)</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>01</td>
-        <td><p class="item">Website design &amp; development</p><p class="sub">Complete multi-section website as scoped above, incl. 1-year warranty</p></td>
-        <td class="r">₹40,000.00</td>
-        <td class="r">40,000.00</td>
-      </tr>
-      <tr>
-        <td>02</td>
-        <td><p class="item">Hosting</p><p class="sub">USD 47.00, billed in INR at ₹88.00 / USD</p></td>
-        <td class="r">$47.00</td>
-        <td class="r">4,136.00</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="totals">
+<!-- 03 · Invoice -->
+<section class="slide light">
+  <p class="eyebrow">The invoice · Billed to Luuma House</p>
+  <h2>Two lines. <em>One clear total.</em></h2>
+  <div class="bill">
     <table>
-      <tr><td>Subtotal</td><td class="r">₹44,136.00</td></tr>
-      <tr><td>GST @ 18%</td><td class="r">₹7,944.48</td></tr>
-      <tr><td style="color:var(--mute)">Round off</td><td class="r" style="color:var(--mute)">− ₹0.48</td></tr>
-      <tr class="grand"><td><span class="label" style="color:var(--ink)">Total payable</span></td><td class="r amt">₹52,080</td></tr>
+      <thead><tr><th style="width:56px">#</th><th>Description</th><th class="r" style="width:150px">Rate</th><th class="r" style="width:160px">Amount</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td>Website design &amp; development<small>Full website as built, incl. 1-year warranty</small></td><td class="r">₹40,000.00</td><td class="r">₹40,000.00</td></tr>
+        <tr><td>02</td><td>Hosting<small>USD 47.00, billed in INR at ₹88.00 / USD</small></td><td class="r">$47.00</td><td class="r">₹4,136.00</td></tr>
+        <tr><td></td><td style="color:var(--mute);font-weight:300">Prices exclude GST. GST charged at 18%.</td><td></td><td></td></tr>
+      </tbody>
     </table>
-  </div>
-
-  <div class="split">
-    <div class="dark">
-      <p class="label">Advance · 50% · due now</p>
-      <p class="amt">₹26,040</p>
+    <div class="sum">
+      <div class="row"><span>Subtotal</span><span>₹44,136.00</span></div>
+      <div class="row"><span>GST @ 18%</span><span>₹7,944.48</span></div>
+      <div class="row m"><span>Round off</span><span>− ₹0.48</span></div>
+      <div class="total">
+        <p class="eyebrow" style="color:var(--ink)">Total payable</p>
+        <p class="big">₹52,080</p>
+        <p>Fifty-two thousand and eighty rupees only.</p>
+      </div>
     </div>
-    <div>
-      <p class="label">Balance · 50% · before deployment</p>
-      <p class="amt">₹26,040</p>
-    </div>
   </div>
+  <div class="foot"><span class="mark">FORM</span><span class="pg">03 / 04</span></div>
+</section>
 
-  <div class="foot">
+<!-- 04 · Payment -->
+<section class="slide dark">
+  <p class="eyebrow">Payment · Next steps</p>
+  <h2>Advance in. Balance paid. <em>The site goes live.</em></h2>
+  <div class="flow">
+    <div class="step hi"><p class="t">Step 1 · Now</p><h3>Advance · 50%</h3><p class="amt">₹26,040</p><p>Confirms the project and locks the launch slot.</p></div>
+    <div class="arrow">→</div>
+    <div class="step"><p class="t">Step 2 · Before launch</p><h3>Balance · 50%</h3><p class="amt">₹26,040</p><p>Final review done. Paid before deployment.</p></div>
+    <div class="arrow">→</div>
+    <div class="step"><p class="t">Step 3 · Live</p><h3>We deploy</h3><p class="amt"><em>Go live</em></p><p>Your 1-year warranty starts the day the site goes live.</p></div>
+  </div>
+  <div class="lower">
     <div>
-      <h3 class="label">Payment details</h3>
-      <dl>
-        <dt>Account name</dt><dd>Formiza Agency</dd>
-        <dt>Bank</dt><dd>__________________</dd>
-        <dt>Account no.</dt><dd>__________________</dd>
-        <dt>IFSC</dt><dd>__________________</dd>
-        <dt>UPI</dt><dd>__________________</dd>
-        <dt>GSTIN</dt><dd>__________________</dd>
+      <p class="eyebrow">Payment details</p>
+      <dl class="lines">
+        <div><dt>Account name</dt><dd>FORM</dd></div>
+        <div><dt>Bank · A/C no.</dt><dd class="blank">_______________________</dd></div>
+        <div><dt>IFSC · UPI</dt><dd class="blank">_______________________</dd></div>
+        <div><dt>GSTIN</dt><dd class="blank">_______________________</dd></div>
       </dl>
     </div>
     <div>
-      <h3 class="label">Terms</h3>
-      <ol>
-        <li>50% advance to confirm; balance 50% before the site goes live.</li>
-        <li>The website is deployed once the full amount is received.</li>
-        <li>Warranty covers bug fixes for 1 year from deployment. New pages or features are quoted separately.</li>
-        <li>Hosting is billed at cost in USD and converted at the rate shown.</li>
-        <li>Prices are exclusive of GST, charged at 18%.</li>
-      </ol>
+      <p class="eyebrow">Terms</p>
+      <ul class="terms">
+        <li>The site is deployed once the full amount is received.</li>
+        <li>Warranty covers bug fixes for 1 year. New pages or features are quoted separately.</li>
+        <li>Questions: call or WhatsApp <span style="color:#F2EFE9">+91 76668 99800</span>.</li>
+      </ul>
     </div>
   </div>
+  <div class="foot"><span class="mark">FORM</span><span class="pg">04 / 04</span></div>
+</section>
 
-  <div class="sign">
-    <p class="thanks">Thank you, Luuma House.</p>
-    <div class="sig">
-      <div class="line"></div>
-      <p class="label">For Formiza Agency · Authorised signatory</p>
-    </div>
-  </div>
-
-</div>
 </body>
 </html>
