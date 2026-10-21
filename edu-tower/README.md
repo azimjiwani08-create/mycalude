@@ -6,6 +6,8 @@ The student journey for Edu Tower (formerly London House of Careers): free diagn
 
 ## Run it
 
+**Quickest preview:** install Node.js 20+ (nodejs.org), then double-click `start-preview.command` (Mac) or `start-preview.bat` (Windows). It installs dependencies the first time and opens http://localhost:3000.
+
 ```bash
 npm install
 npm run dev          # http://localhost:3000, demo mode, no keys needed
