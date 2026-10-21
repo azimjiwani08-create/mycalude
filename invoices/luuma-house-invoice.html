@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Invoice FZ-2026-001 — Luuma House</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --ink:#1A1A1A; --paper:#F2EFE9; --mute:#6b6862; --rule:#d6d1c7; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 296mm; overflow: hidden; padding: 13mm 16mm 12mm; position: relative; }
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  .label { font-size: 7pt; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); font-weight: 400; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 5mm; border-bottom: 1px solid var(--ink); }
+  .brand { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 30pt; letter-spacing: .06em; line-height: 1; }
+  .brand small { display: block; font-family: 'Jost', sans-serif; font-size: 7pt; font-weight: 400; letter-spacing: .3em; margin-top: 2mm; color: var(--mute); }
+  .doc-title { text-align: right; }
+  .doc-title h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 26pt; line-height: 1; }
+  .doc-title p { margin-top: 1.5mm; }
+
+  .meta { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 8mm; padding: 4.5mm 0; border-bottom: 1px solid var(--rule); }
+  .meta .v { margin-top: 1.2mm; font-weight: 400; }
+  .meta .v.big { font-family: 'Cormorant Garamond', serif; font-size: 15pt; font-weight: 500; line-height: 1.1; }
+
+  .scope { padding: 4.5mm 0 3.5mm; border-bottom: 1px solid var(--rule); }
+  .scope h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 14pt; margin: 1mm 0 2.5mm; }
+  .scope ul { list-style: none; columns: 2; column-gap: 10mm; }
+  .scope li { padding: .4mm 0 .4mm 4mm; position: relative; break-inside: avoid; }
+  .scope li::before { content: ''; position: absolute; left: 0; top: 2.7mm; width: 1.6mm; height: 1px; background: var(--ink); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 4mm; }
+  th { text-align: left; font-size: 7pt; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); font-weight: 400; padding: 0 0 2mm; border-bottom: 1px solid var(--ink); }
+  th.r, td.r { text-align: right; }
+  td { padding: 2.4mm 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td .item { font-weight: 400; }
+  td .sub { color: var(--mute); font-size: 8.2pt; margin-top: .5mm; }
+
+  .totals { display: flex; justify-content: flex-end; margin-top: 3mm; }
+  .totals table { width: 82mm; margin: 0; }
+  .totals td { padding: 1.1mm 0; border: 0; }
+  .totals tr.grand td { border-top: 1px solid var(--ink); padding-top: 3mm; }
+  .totals tr.grand .amt { font-family: 'Cormorant Garamond', serif; font-size: 20pt; font-weight: 500; line-height: 1; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 4mm; }
+  .split div { border: 1px solid var(--ink); padding: 3.5mm 4mm; }
+  .split .amt { font-family: 'Cormorant Garamond', serif; font-size: 16pt; font-weight: 500; margin-top: 1mm; }
+  .split div.dark { background: var(--ink); color: var(--paper); }
+  .split div.dark .label { color: #b9b4aa; }
+
+  .foot { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin-top: 5mm; }
+  .foot h3 { margin-bottom: 2mm; }
+  .foot dl { display: grid; grid-template-columns: 26mm 1fr; row-gap: 1mm; }
+  .foot dt { color: var(--mute); }
+  .foot dd { font-weight: 400; }
+  .foot ol { padding-left: 4mm; }
+  .foot ol li { margin-bottom: .6mm; }
+
+  .sign { margin-top: 6mm; display: flex; justify-content: space-between; align-items: flex-end; padding-top: 4mm; border-top: 1px solid var(--rule); }
+  .sign .thanks { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13pt; }
+  .sign .sig { text-align: right; }
+  .sign .sig .line { width: 50mm; border-bottom: 1px solid var(--ink); height: 9mm; margin-left: auto; margin-bottom: 1.5mm; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">FORMIZA<small>AGENCY · MUMBAI</small></div>
+    <div class="doc-title">
+      <h1>Tax Invoice</h1>
+      <p class="label">No. FZ-2026-001</p>
+    </div>
+  </header>
+
+  <section class="meta">
+    <div>
+      <p class="label">Billed to</p>
+      <p class="v big">Luuma House</p>
+      <p class="v" style="font-weight:300;color:var(--mute)">Restaurant &amp; Bar</p>
+    </div>
+    <div>
+      <p class="label">Invoice date</p>
+      <p class="v">21 October 2026</p>
+      <p class="label" style="margin-top:3mm">Advance due</p>
+      <p class="v">On receipt</p>
+    </div>
+    <div>
+      <p class="label">From</p>
+      <p class="v">Formiza Agency</p>
+      <p class="v" style="font-weight:300">Mumbai, Maharashtra</p>
+    </div>
+  </section>
+
+  <section class="scope">
+    <p class="label">Project</p>
+    <h2>Luuma House — Website Design &amp; Development</h2>
+    <ul>
+      <li>Home page with Sunlit / Candlelit toggle and Reserve Now strip</li>
+      <li>Lunch, Dinner and By the Bar sections with photo sliders and full galleries</li>
+      <li>Events page with past events and event reels</li>
+      <li>Ambience page with swipeable viewer and photo collage</li>
+      <li>Our Visionaries, Careers and footer</li>
+      <li>Reservation pop-up that opens a call or WhatsApp chat</li>
+      <li>Fully mobile-friendly build</li>
+      <li>1-year warranty from deployment</li>
+    </ul>
+  </section>
+
+  <table>
+    <thead>
+      <tr><th style="width:8mm">#</th><th>Description</th><th class="r" style="width:28mm">Rate</th><th class="r" style="width:30mm">Amount (₹)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td><p class="item">Website design &amp; development</p><p class="sub">Complete multi-section website as scoped above, incl. 1-year warranty</p></td>
+        <td class="r">₹40,000.00</td>
+        <td class="r">40,000.00</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td><p class="item">Hosting</p><p class="sub">USD 47.00, billed in INR at ₹88.00 / USD</p></td>
+        <td class="r">$47.00</td>
+        <td class="r">4,136.00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="totals">
+    <table>
+      <tr><td>Subtotal</td><td class="r">₹44,136.00</td></tr>
+      <tr><td>GST @ 18%</td><td class="r">₹7,944.48</td></tr>
+      <tr><td style="color:var(--mute)">Round off</td><td class="r" style="color:var(--mute)">− ₹0.48</td></tr>
+      <tr class="grand"><td><span class="label" style="color:var(--ink)">Total payable</span></td><td class="r amt">₹52,080</td></tr>
+    </table>
+  </div>
+
+  <div class="split">
+    <div class="dark">
+      <p class="label">Advance · 50% · due now</p>
+      <p class="amt">₹26,040</p>
+    </div>
+    <div>
+      <p class="label">Balance · 50% · before deployment</p>
+      <p class="amt">₹26,040</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>
+      <h3 class="label">Payment details</h3>
+      <dl>
+        <dt>Account name</dt><dd>Formiza Agency</dd>
+        <dt>Bank</dt><dd>__________________</dd>
+        <dt>Account no.</dt><dd>__________________</dd>
+        <dt>IFSC</dt><dd>__________________</dd>
+        <dt>UPI</dt><dd>__________________</dd>
+        <dt>GSTIN</dt><dd>__________________</dd>
+      </dl>
+    </div>
+    <div>
+      <h3 class="label">Terms</h3>
+      <ol>
+        <li>50% advance to confirm; balance 50% before the site goes live.</li>
+        <li>The website is deployed once the full amount is received.</li>
+        <li>Warranty covers bug fixes for 1 year from deployment. New pages or features are quoted separately.</li>
+        <li>Hosting is billed at cost in USD and converted at the rate shown.</li>
+        <li>Prices are exclusive of GST, charged at 18%.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sign">
+    <p class="thanks">Thank you, Luuma House.</p>
+    <div class="sig">
+      <div class="line"></div>
+      <p class="label">For Formiza Agency · Authorised signatory</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
