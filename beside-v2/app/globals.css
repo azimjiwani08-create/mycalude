@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@theme {
+  /* Beside design kit: bold flat, white screens. Text on pink is always flat ink. */
+  --color-canvas: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-ink: #111111;
+  --color-ink-2: #6B6B6B;        /* secondary text on white */
+  --color-ink-3: #9A9A9A;        /* placeholders only */
+  --color-line: #E7D8DD;
+  --color-line-strong: #E7D8DD;
+  --color-hover: #FBEAF5;
+  --color-disabled: #FBEAF5;
+  --color-pink: #F1B2DC;         /* Beside Pink (Pantone Magenta 0521 C): main buttons, active states, highlights */
+  --color-pink-pressed: #D99CC6;
+  --color-pink-tint: #FBEAF5;    /* cards, selected rows, soft highlights: pink at about 30% on white */
+  --color-alert: #D6362F;        /* the safety button and urgent alerts only */
+
+  --radius-photo: 28px;
+  --radius-card: 28px;
+  --radius-inner: 18px;         /* inputs */
+  --radius-btn: 9999px;
+
+  --text-display: 54px;
+  --text-display--line-height: 58px;
+  --text-display--letter-spacing: -0.02em;
+  --text-headline: 34px;
+  --text-headline--line-height: 40px;
+  --text-section: 22px;
+  --text-section--line-height: 28px;
+  --text-body: 17px;
+  --text-body--line-height: 24px;
+  --text-chat: 17px;
+  --text-chat--line-height: 24px;
+  --text-caption: 13px;
+  --text-caption--line-height: 18px;
+
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-sans: "Supreme", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Zodiak", Georgia, serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-canvas);
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 400;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Desktop: the 390px phone frame sits on a slightly deeper canvas. */
+  @media (min-width: 640px) {
+    html,
+    body {
+      background-color: var(--color-canvas);
+    }
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+  ::placeholder {
+    color: var(--color-ink-3);
+    opacity: 1;
+  }
+  button:not(:disabled),
+  [role="button"] {
+    cursor: pointer;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * Approved exception to "glass only over photos": the welcome panel is a faint glass over the flat pink.
+ * Nothing else on a white or flat screen uses glass.
+ */
+@utility login-panel {
+  background: rgb(17 17 17 / var(--login-panel-opacity));
+  /* The blur comes from the backdrop-blur classes on the element, driven by --login-glass-blur. */
+  border: 1px solid var(--login-glass-edge);
+  box-shadow: inset 0 1px 0 var(--login-glass-edge);
+  @supports not (backdrop-filter: blur(1px)) {
+    background: rgb(17 17 17 / 0.88);
+  }
+}
+
+/* Fixed and sticky bars clear the home indicator. */
+@utility pb-safe {
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+/* A still placeholder in the cream tones. Nothing loops. */
+@utility skeleton {
+  background-color: var(--color-disabled);
+}
+
+/*
+ * White screens clear the status bar and the Dynamic Island.
+ * The page is drawn under them (contentInset: never), so we reserve the space and
+ * mask it, which means nothing can ever scroll into view behind the clock or the notch.
+ * Photo screens (html[data-bleed]) run under the status bar on purpose.
+ */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  /* Welcome screen glass: keep it faint. The blur should stay at 10px or less. */
+  --login-glass-blur: 6px;
+  --login-panel-opacity: 0.82;
+  --login-glass-edge: rgba(255, 255, 255, 0.02);
+  /* Home feed background. Pink is for buttons and highlights; the feed itself is white. */
+  --feed-bg: #FFFFFF;
+}
+html:not([data-bleed]) [data-screen] {
+  box-sizing: border-box;
+  padding-top: var(--safe-top);
+}
+html:not([data-bleed]) body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 45;
+  height: var(--safe-top);
+  background: var(--color-canvas);
+}
+html:not([data-bleed]) [data-screen] .sticky.top-0 {
+  top: var(--safe-top);
+}
+
+/* Room for the Live session pill, so it never covers a screen's title. */
+html[data-live-strip] [data-screen] {
+  box-sizing: border-box;
+  padding-top: calc(52px + env(safe-area-inset-top));
+}
+html[data-live-strip] body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 45;
+  height: calc(52px + env(safe-area-inset-top));
+  background: var(--color-canvas);
+}
+html[data-live-strip] [data-screen] .sticky.top-0 {
+  top: calc(52px + env(safe-area-inset-top));
+}
+
+/* Screen change: a soft fade with an 8px upward slide. Reduced motion: a plain fade. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+[data-screen] > * {
+  animation: rise-in 220ms ease-out backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-screen] > * {
+    animation-name: fade-in;
+  }
+}
+
+/* Frosted glass only on top of a photo, never on white screens. No blur support: solid Ink at 70%. */
+@utility glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  @supports not (backdrop-filter: blur(1px)) {
+    background: rgba(17, 17, 17, 0.7);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    background: rgba(17, 17, 17, 0.7);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+/* The bottom of a feed photo goes softly out of focus, fading to sharp towards the top. */
+@utility feed-blur {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 100%);
+}
+@utility header-scrim {
+  background: linear-gradient(to bottom, rgba(17, 17, 17, 0.45), rgba(17, 17, 17, 0));
+}
+@utility photo-scrim {
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.78), rgba(17, 17, 17, 0) 45%);
+}
